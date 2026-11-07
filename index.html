@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아사쿠라 죠 & 코가 유다이의 결혼식에 초대합니다</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display & Noto Serif KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Serif+KR:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fdfbfb',
+                            100: '#f4f3f1',
+                            200: '#e6e4e0',
+                            300: '#d7d3cb',
+                            800: '#3a3835',
+                            900: '#1a1918',
+                            silver: '#cfd2d6',
+                            gold: '#c5a880'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif KR"', 'serif'],
+                        cinzel: ['"Cinzel"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Customizations & Aesthetic Fine-Tuning */
+        body {
+            background-color: #faf9f8;
+            color: #2c2a29;
+            font-family: 'Noto Serif KR', serif;
+            overflow-x: hidden;
+            touch-action: manipulation;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(230, 228, 224, 0.5);
+        }
+
+        /* Snow Particle Styles */
+        #snow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .snowflake {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(220,225,235,0.4) 100%);
+            border-radius: 50%;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) translateX(0);
+            }
+            100% {
+                transform: translateY(105vh) translateX(25px);
+            }
+        }
+
+        /* Smooth reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Image Zoom FX */
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        .img-hover-zoom img {
+            transition: transform 1.2s ease;
+        }
+        .img-hover-zoom:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="antialiased text-stone-800 selection:bg-stone-200 selection:text-stone-900">
+
+    <!-- Subtle Floating Snow Background -->
+    <div id="snow-container"></div>
+
+    <!-- Background Music Controller (Simulated Audio Synth/Ambient Toggle) -->
+    <div class="fixed top-5 right-5 z-50">
+        <button id="music-toggle" class="w-11 h-11 rounded-full glass-panel flex items-center justify-center text-stone-600 hover:text-stone-900 shadow-sm transition-all duration-300">
+            <i id="music-icon" class="fa-solid fa-music text-sm"></i>
+        </button>
+    </div>
+
+    <!-- Main Container (Mobile Max Width for High-End Invitation Feel) -->
+    <div class="max-w-md mx-auto bg-white min-h-screen shadow-2xl relative border-x border-stone-100 pb-20">
+
+        <!-- HEADER HERO SECTION -->
+        <header class="relative min-h-[90vh] flex flex-col justify-between items-center text-center px-6 py-16 bg-gradient-to-b from-stone-50 via-white to-stone-100 overflow-hidden">
+            <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#999_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            
+            <div class="z-20 pt-8 reveal">
+                <p class="font-cinzel tracking-[0.3em] text-xs text-stone-400 uppercase mb-3">The Winter Wedding</p>
+                <div class="w-8 h-[1px] bg-stone-300 mx-auto mb-6"></div>
+                <p class="font-cinzel text-xs tracking-widest text-stone-500">2026 . 12 . 25</p>
+            </div>
+
+            <!-- Main Title & Cover Photo Mock -->
+            <div class="z-20 my-auto w-full reveal">
+                <h1 class="font-cinzel text-3xl md:text-4xl tracking-wider text-stone-800 mb-2 font-light">
+                    ASAKURA & KOGA
+                </h1>
+                <p class="font-serif text-sm text-stone-500 font-light tracking-wide mb-8">
+                    아사쿠라 죠 <span class="text-xs px-2 text-stone-300">|</span> 코가 유다이
+                </p>
+
+                <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-4 border-white mb-6 img-hover-zoom">
+                    <!-- High fashion minimalist wedding aesthetic image placeholder -->
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding Cover" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-stone-950/40 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-0 right-0 text-white font-cinzel text-xs tracking-[0.2em]">
+                        HOLIDAY IN TOKYO
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="z-20 flex flex-col items-center reveal">
+                <span class="font-sans text-[10px] tracking-[0.25em] text-stone-400 uppercase mb-2">Scroll Down</span>
+                <div class="w-[1px] h-8 bg-stone-300 animate-pulse"></div>
+            </div>
+        </header>
+
+
+        <!-- INVITATION STATEMENT SECTION -->
+        <section class="py-20 px-8 text-center bg-white reveal">
+            <div class="max-w-xs mx-auto">
+                <span class="text-stone-300 font-serif italic text-2xl">“</span>
+                <h2 class="font-serif text-lg leading-relaxed text-stone-700 font-normal mb-8">
+                    입술을 맞대며 영원의 사랑을 약속했던<br>
+                    오늘날의 성탄절을 평생 잊지 못할 것입니다.<br><br>
+                    맞잡은 두 손을 결코 놓지 않으며,<br>
+                    그 온기를 품은 채 영원히 함께 걸어가겠습니다.
+                </h2>
+                
+                <div class="w-12 h-[1px] bg-stone-200 mx-auto my-8"></div>
+
+                <div class="space-y-3 font-serif text-sm text-stone-600 leading-loose">
+                    <p class="flex items-center justify-center space-x-2">
+                        <span class="text-stone-400 text-xs font-sans">신랑</span>
+                        <strong class="font-medium text-stone-800">아사쿠라 죠</strong>
+                    </p>
+                    <p class="flex items-center justify-center space-x-2">
+                        <span class="text-stone-400 text-xs font-sans">신랑</span>
+                        <strong class="font-medium text-stone-800">코가 유다이</strong>
+                    </p>
+                </div>
+                
+                <p class="mt-8 text-xs text-stone-400 leading-relaxed font-sans">
+                    소중한 분들을 모시고 하얀 눈송이처럼 축복 가득한<br>첫걸음을 내딛고자 합니다.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- DATE & COUNTDOWN SECTION -->
+        <section class="py-16 px-6 bg-stone-50 border-y border-stone-100 text-center reveal">
+            <p class="font-cinzel text-xs tracking-[0.25em] text-stone-400 uppercase mb-2">Save The Date</p>
+            <h3 class="font-serif text-xl text-stone-800 font-light mb-6">2026년 12월 25일 금요일 오후 5시</h3>
+
+            <!-- Calendar Display -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-stone-200/60 max-w-xs mx-auto mb-8">
+                <div class="font-cinzel text-sm text-stone-700 font-semibold mb-4 tracking-widest">DECEMBER 2026</div>
+                <div class="grid grid-cols-7 gap-2 text-xs font-sans text-stone-400 mb-2">
+                    <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span>
+                </div>
+                <div class="grid grid-cols-7 gap-2 text-xs font-sans text-stone-700">
+                    <span class="opacity-0"></span><span class="opacity-0"></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                    <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+                    <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
+                    <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span>
+                    <!-- Highlighted Wedding Day -->
+                    <span class="bg-stone-900 text-white font-bold rounded-full w-6 h-6 flex items-center justify-center mx-auto shadow-md">25</span>
+                    <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+                </div>
+            </div>
+
+            <!-- Real-time Countdown Timer -->
+            <div class="grid grid-cols-4 gap-2 max-w-xs mx-auto font-sans" id="countdown">
+                <div class="bg-white p-3 rounded-lg border border-stone-200/50 shadow-sm">
+                    <span id="days" class="block font-cinzel text-xl font-semibold text-stone-800">00</span>
+                    <span class="text-[10px] text-stone-400 uppercase">Days</span>
+                </div>
+                <div class="bg-white p-3 rounded-lg border border-stone-200/50 shadow-sm">
+                    <span id="hours" class="block font-cinzel text-xl font-semibold text-stone-800">00</span>
+                    <span class="text-[10px] text-stone-400 uppercase">Hours</span>
+                </div>
+                <div class="bg-white p-3 rounded-lg border border-stone-200/50 shadow-sm">
+                    <span id="minutes" class="block font-cinzel text-xl font-semibold text-stone-800">00</span>
+                    <span class="text-[10px] text-stone-400 uppercase">Mins</span>
+                </div>
+                <div class="bg-white p-3 rounded-lg border border-stone-200/50 shadow-sm">
+                    <span id="seconds" class="block font-cinzel text-xl font-semibold text-stone-800">00</span>
+                    <span class="text-[10px] text-stone-400 uppercase">Secs</span>
+                </div>
+            </div>
+            <p class="text-xs text-stone-400 mt-4 font-serif italic">죠와 유다이의 특별한 날까지 남은 시간</p>
+        </section>
+
+
+        <!-- PHOTO GALLERY SECTION -->
+        <section class="py-20 px-6 bg-white reveal">
+            <div class="text-center mb-10">
+                <p class="font-cinzel text-xs tracking-[0.25em] text-stone-400 uppercase mb-1">Our Gallery</p>
+                <h3 class="font-serif text-xl text-stone-800">소중한 순간들</h3>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-2 gap-3">
+                <div class="col-span-2 img-hover-zoom rounded-xl overflow-hidden aspect-[16/10] shadow-sm cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Gallery 1">
+                </div>
+                <div class="img-hover-zoom rounded-xl overflow-hidden aspect-square shadow-sm cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80')">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="Gallery 2">
+                </div>
+                <div class="img-hover-zoom rounded-xl overflow-hidden aspect-square shadow-sm cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80')">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="Gallery 3">
+                </div>
+                <div class="col-span-2 img-hover-zoom rounded-xl overflow-hidden aspect-[16/9] shadow-sm cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Gallery 4">
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div id="image-modal" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4" onclick="closeModal()">
+            <img id="modal-img" src="" class="max-w-full max-h-[85vh] rounded-lg shadow-2xl object-contain">
+            <button class="absolute top-6 right-6 text-white text-2xl font-sans" onclick="closeModal()">&times;</button>
+        </div>
+
+
+        <!-- VENUE & LOCATION SECTION -->
+        <section class="py-16 px-6 bg-stone-50 border-t border-stone-100 reveal">
+            <div class="text-center mb-8">
+                <p class="font-cinzel text-xs tracking-[0.25em] text-stone-400 uppercase mb-1">Location</p>
+                <h3 class="font-serif text-xl text-stone-800">오시는 길</h3>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200/60 mb-6 text-center">
+                <h4 class="font-serif text-lg font-medium text-stone-800 mb-1">도쿄 릴리안 그랜드 홀</h4>
+                <p class="text-xs font-sans text-stone-500 mb-4">Tokyo Lillian Grand Hall & Gardens</p>
+                <p class="text-xs text-stone-600 leading-relaxed font-sans mb-6">
+                    東京都港区赤坂 9-7-1 (도쿄도 미나토구 아카사카 9-7-1)<br>
+                    TEL: +81 (0)3 5555 8822
+                </p>
+
+                <!-- Stylized Mock Map -->
+                <div class="w-full h-48 bg-stone-100 rounded-xl relative overflow-hidden flex items-center justify-center border border-stone-200">
+                    <div class="absolute inset-0 opacity-40 bg-[radial-gradient(#ccc_1px,transparent_1px)] [background-size:12px_12px]"></div>
+                    <div class="z-10 text-center">
+                        <div class="w-10 h-10 bg-stone-900 text-white rounded-full flex items-center justify-center mx-auto mb-2 shadow-lg animate-bounce">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <span class="text-xs font-semibold text-stone-800 font-sans block">도쿄 릴리안 그랜드 홀</span>
+                        <span class="text-[10px] text-stone-400 font-sans">도쿄 롯폰기역 8번 출구 도보 3분</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transport Directions -->
+            <div class="space-y-4 text-xs text-stone-600 font-sans px-2">
+                <div class="flex items-start space-x-3">
+                    <span class="bg-stone-200 text-stone-700 px-2 py-0.5 rounded text-[10px] font-semibold mt-0.5">지하철</span>
+                    <p class="leading-relaxed">도쿄메트로 히비야선 / 도에이 오에도선 <strong>롯폰기역</strong> 직결통로 이용</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <span class="bg-stone-200 text-stone-700 px-2 py-0.5 rounded text-[10px] font-semibold mt-0.5">택시</span>
+                    <p class="leading-relaxed">하네다 공항에서 약 35분, 도쿄역에서 약 15분 소요</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- RSVP SECTION -->
+        <section class="py-20 px-6 bg-white reveal">
+            <div class="text-center mb-10">
+                <p class="font-cinzel text-xs tracking-[0.25em] text-stone-400 uppercase mb-1">RSVP</p>
+                <h3 class="font-serif text-xl text-stone-800 mb-2">참석 여부 전달하기</h3>
+                <p class="text-xs text-stone-400 font-sans">축복의 자리를 빛내주실 하객분들의 정보를 작성해 주세요.</p>
+            </div>
+
+            <form id="rsvp-form" onsubmit="handleRSVP(event)" class="bg-stone-50 p-6 rounded-2xl border border-stone-200/60 space-y-5">
+                <div>
+                    <label class="block text-xs font-sans text-stone-600 mb-2 font-medium">성함</label>
+                    <input type="text" required placeholder="성함을 입력해 주세요" class="w-full px-4 py-3 rounded-lg border border-stone-200 text-xs font-sans focus:outline-none focus:border-stone-500 bg-white">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-sans text-stone-600 mb-2 font-medium">구분</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="flex items-center justify-center p-3 bg-white rounded-lg border border-stone-200 text-xs font-sans cursor-pointer hover:bg-stone-100 transition">
+                            <input type="radio" name="side" value="jo" checked class="mr-2 accent-stone-800"> 신랑 죠 측
+                        </label>
+                        <label class="flex items-center justify-center p-3 bg-white rounded-lg border border-stone-200 text-xs font-sans cursor-pointer hover:bg-stone-100 transition">
+                            <input type="radio" name="side" value="yudai" class="mr-2 accent-stone-800"> 신랑 유다이 측
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-sans text-stone-600 mb-2 font-medium">참석 여부</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="flex items-center justify-center p-3 bg-white rounded-lg border border-stone-200 text-xs font-sans cursor-pointer hover:bg-stone-100 transition">
+                            <input type="radio" name="attend" value="yes" checked class="mr-2 accent-stone-800"> 참석 가능
+                        </label>
+                        <label class="flex items-center justify-center p-3 bg-white rounded-lg border border-stone-200 text-xs font-sans cursor-pointer hover:bg-stone-100 transition">
+                            <input type="radio" name="attend" value="no" class="mr-2 accent-stone-800"> 참석 어려움
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-sans text-stone-600 mb-2 font-medium">동반 인원수 (본인 포함)</label>
+                    <select class="w-full px-4 py-3 rounded-lg border border-stone-200 text-xs font-sans focus:outline-none focus:border-stone-500 bg-white">
+                        <option>1명</option>
+                        <option>2명</option>
+                        <option>3명 이상</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 bg-stone-900 text-white rounded-lg text-xs font-sans font-medium tracking-widest hover:bg-stone-800 transition shadow-md">
+                    참석 회신 보내기
+                </button>
+            </form>
+        </section>
+
+
+        <!-- GUESTBOOK SECTION -->
+        <section class="py-16 px-6 bg-stone-50 border-t border-stone-100 reveal">
+            <div class="text-center mb-8">
+                <p class="font-cinzel text-xs tracking-[0.25em] text-stone-400 uppercase mb-1">Guestbook</p>
+                <h3 class="font-serif text-xl text-stone-800 mb-2">축하 방명록</h3>
+                <p class="text-xs text-stone-400 font-sans">두 사람의 새 출발을 축하하는 따뜻한 한마디를 남겨주세요.</p>
+            </div>
+
+            <!-- Add Guestbook Form -->
+            <div class="bg-white p-5 rounded-xl border border-stone-200/60 shadow-sm mb-6">
+                <input type="text" id="gb-name" placeholder="작성자 이름" class="w-full px-3 py-2 text-xs border border-stone-200 rounded-md mb-3 focus:outline-none focus:border-stone-400">
+                <textarea id="gb-msg" rows="3" placeholder="축하 메시지를 남겨주세요..." class="w-full px-3 py-2 text-xs border border-stone-200 rounded-md mb-3 focus:outline-none focus:border-stone-400 resize-none"></textarea>
+                <button onclick="addGuestbookMessage()" class="w-full py-2.5 bg-stone-800 text-white rounded-md text-xs font-sans tracking-wide hover:bg-stone-900 transition">
+                    메시지 등록
+                </button>
+            </div>
+
+            <!-- Message Dynamic Container -->
+            <div id="guestbook-list" class="space-y-3">
+                <div class="bg-white p-4 rounded-xl border border-stone-200/50 shadow-sm">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-semibold text-xs text-stone-800">민우 & 하은</span>
+                        <span class="text-[10px] text-stone-400 font-sans">2026.12.01</span>
+                    </div>
+                    <p class="text-xs text-stone-600 leading-relaxed font-sans">
+                        죠, 유다이! 성탄절의 선물 같은 두 사람의 결혼을 진심으로 축하해. 영원히 행복하길 기도할게! 🎄✨
+                    </p>
+                </div>
+ <div class="bg-흰색 p-4 둥근-xl 테두리-돌-200/50 그림자-sm">
+ <div class="항목 간 유연한 정당화-중심 mb-2">
+ <span class="font-반볼드 텍스트-xs 텍스트-스톤-800">도쿄 친구 일동</span>
+ <span class="text-[10 px]text-stone-400 폰트-sans">2026.11.28</span>
+                    </디브>
+ <p class="텍스트-xs 텍스트-스톤-600 선도-relaxed 폰트-sans">
+ 손을 꼭 잡은 두 사람의 모습이 아직도 눈에 선하네. 잊지 못할 홀리데이 웨딩 기대하고 있을게!
+                    </p>
+                </디브>
+            </디브>
+        </부분>
+
+
+        <!-- Footer & SHARE -->
+ <footer class="py-16 px-6 텍스트 센터 bg-흰색 테두리-t 테두리-돌-100 공개">
+ <h4 class="font-시네젤 텍스트-LG 추적-widest 텍스트-스톤-800 mb-2">아사쿠라 & 코가</h4>
+ <p class="text-xs 폰트-세리프 text-stone-400 mb-8">영원히 그리고 항상</p>
+
+ <버튼 클릭="복사초대 링크()" 클래스="px-6 py-3 경계-돌-300 반올림-전체 텍스트-xs 글꼴-sans 텍스트-돌-700 호버:bg-돌-50 전환 플렉스 항목-센터 정당화-센터 mx-auto space-x-2">
+ <i class="fa-정규 fa-copy"></i>
+ <span>모바일 청첩장 링크 복사하기</span>
+            </버튼>
+
+ <p class="text-[10 px] text-stone-300 폰트-sans mt-12">
+ © 2026 아사쿠라 조 & 코가 유다이. 무단 전재 금지.
+            </p>
+        </발밑의>
+
+    </디브>
+
+    <!-- 건배 알림 -->
+ <div id="toast" 클래스="고정 하단-8 왼쪽-1/2 - translate-x-1/2 bg-stone-900/90 텍스트-흰색 텍스트-xs px-6 py-3 둥근 전체 그림자-2 xl 불투명도-0 포인터-events-none 전환-모든 지속 시간-300 z-50 폰트-sans">
+ 링크가 복사되었습니다.
+    </디브>
+
+    <!-- 자바스크립트 상호작용 -->
+    <대본>
+ // 1. 눈송이 발생기
+ 기능. 스노우플레이크 만들기() {
+ const container = document.getElementById('눈 컨테이너');
+ 상수 개수 = 25;
+ (i = 0, i < count; i++) {에 대해
+ const flake = document.createElement('div');
+ flake.class이름 = 'snowflake';
+ const size = Math.random() * 5 + 3;
+ 플레이크 스타일.너비 = '${크기} px';
+ 플레이크 스타일.높이 = '${크기} px';
+ flake.style.left = '${Math.random() * 100}vw';
+ flake.style.animationDuration = '${Math.random() * 8 + 6}s';
+ flake.style.animation지연 = '${Math.random() * 5}s';
+ container.appendChild(flake);
+ }
+ }
+ 스노우플레이크 생성();
+
+ // 2. 카운트다운 타이머
+ const 웨딩 날짜 = 새로운 날짜('2026-12-25T17:00:00').getTime();
+
+ 기능. 업데이트 카운트다운() {
+ const now = new Date(.getTime());
+ 일정 차이 = 결혼 날짜 - 지금;
+
+ 만약 (diffe > 0) {
+ 상수 일 = Math.floor (차이 / (1000 * 60 * 24));
+ 상수 시간 = Math.floor ((차이 % (1000 * 60 * 24)) / (1000 * 60 * 60);
+ constumines = Math.floor ((차분 % (1000 * 60) / (1000 * 60));
+ const seconds = Math.floor((차이 % (1000 * 60)) / 1000);
+
+ document.getElementById('일').내부 텍스트 = 문자열(일).padStart(2, '0');
+ document.getElementById('시간').내부 텍스트 = 문자열(시간).padStart(2, '0');
+ document.getElementById('분').내부 텍스트 = 문자열(분).padStart(2, '0');
+ document.getElementById('초').내부 텍스트 = 문자열(초).padStart(2, '0');
+ } 또 다른 {
+ document.getElementById('카운트다운').innerHTML = "<디브 class='col-span-4 text-center font-serif text-stone-700 py-2'>오늘 두 사람의 행복한 결합이 진행됩니다";
+ }
+ }
+ setInterval(updateCountdown, 1000);
+ updateCountdown();
+
+ // 3. 스크롤 노출 애니메이션
+ const 관찰자 = 새로운 교차 관찰자((엔트리) => {
+ 항목들.각 항목에 대해 => {
+ 만약 (entry.is교차) {
+ entry.target.classList.add('활성');
+ }
+ });
+ }, 임계값: 0.1 };
+
+ 문서.쿼리SelectorAll('reveal').각각에 대해(el => 관찰자.observe(el));
+
+ // 4. 라이트박스 모달
+ 기능. openModal(src) {
+ document.getElementById('modal-img').src = src;
+ document.getElementById('image-modal').classList.remove('숨겨진');
+ }
+ 기능. 클로즈모달() {
+ document.getElementById('image-modal').classList.add('숨겨진');
+ }
+
+ // 5. 건배 알림
+ 기능. 쇼토스트(메시지) {
+ const toast = document.getElementById('toast');
+ 토스트.innerText = msg;
+ tost.classList.remove('불투명도-0', '포인터 이벤트 없음');
+ setTimeout((() => {
+ tost.classList.add('불투명도-0', '포인터 이벤트 없음');
+ }, 2500);
+ }
+
+ // 6. 링크 복사
+ 기능. 초대 링크 복사() {
+ const 더미 = document.createElement('입력');
+ document.body.appendChild(dummy);
+ dummy.value = window.location.href;
+ 더미.() 선택;
+ document.execCommand('copy');
+ document.body.removeChild(더미);
+ showToast('모바일 청첩장 링크가 복사되었습니다.');
+ }
+
+ // 7. RSVP 폼 핸들러
+ 기능. handleRSVP(e) {
+ e.preventDefault();
+ showToast('참석 여부가 신랑 측에 전달되었습니다. 감사해보겠습니다!');
+ e.target. reset();
+ }
+
+ // 8. 게스트북 동적 추가
+ 기능. 게스트북 메시지 추가() {
+ 상수 이름입력 = document.getElementById('GB 이름');
+ const msgInput = document.getElementById('gb-msg');
+
+ 만약 (!nameInput.value.trim() || !msgInput.value.trim() {
+ showToast('이름과 메시지를 모두 입력해 주세요.');
+ 반환;
+ }
+
+ const list = document.getElementById('게스트북 리스트');
+ const newItem = document.createElement('div');
+ newItem.className = 'bg-흰색 p-4 둥근-xl 테두리-돌-200/50 그림자-스마 애니메이트-fade-인';
+ newItem.innerHTML = '
+ <div class="항목 간 유연한 정당화-중심 mb-2">
+ <span class="font-반볼드 텍스트-xs 텍스트-스톤-800">${escapeHtml(nameInput.value)}/span>
+ <span class="text-[10 px]text-stone-400 폰트-sans">방금 전</span>
+ </div>
+ <p class="텍스트-xs 텍스트-스톤-600 선도-relaxed 폰트-sans">
+ ${escapeHtml(msgInput.value)}
+ </p>
+ `
+
+ list.prepend(새 항목);
+ 이름 입력.가치 = '';
+ msgInput.value = '';
+ showToast('축하 메시지가 등록되었습니다.');
+ }
+
+ 함수 이스케이프Html(텍스트) {
+ 텍스트를 반환합니다.replace(/&/g, "&".replace(/<g, "<.replace(/>/g, ">).replace(/"/g, """);
+ }
+
+ // 9. 오디오 앰비언트 토글 시뮬레이션
+ iAudioPlaying = false라고 합니다;
+ audioCtx를 허용합니다;
+        
+ document.getElementById('music-toggle').addEventListener('클릭', function() {
+ const 아이콘 = document.getElementById('music-icon');
+ 만약 (!is오디오 재생) {
+ // 소프트 차임 노트 재생(시뮬레이션 오디오)
+ if (!audioCtx) audioCtx = new (window).오디오 컨텍스트 || 창.웹킷오디오 컨텍스트)(;
+ const osc = audioCtx.createOscillator();
+ const gain = audioCtx.createGain();
+ osc.type = 'sine';
+ osc. 주파수.setValueAtTime(440, audioCtx.currentTime); // A4
+ gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+ gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 3);
+ osc.connect(이득);
+ gain.connect(audioCtx.destination);
+ osc.start ();
+ osc.stop(audioCtx.currentTime + 3);
+
+ icon.classList.remove('fa-music');
+ icon.classList.add('fa-volume-high', 'text-stone-900');
+ showToast('배경 음악이 재생됩니다.');
+ isAudioPlaying = true;
+ } 그 외 {
+ icon.classList.remove('fa-volume-high', 'text-stone-900');
+ icon.classList.add('fa-music');
+ showToast('음악이 일시 정지되었습니다.');
+ isAudioPlaying = false;
+ }
+ });
+ </대본>
+</몸>
+ </HTML>
